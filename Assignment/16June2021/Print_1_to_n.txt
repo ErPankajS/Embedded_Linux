@@ -1,0 +1,18 @@
+#include <stdio.h> 
+  
+void printNumbers(unsigned int n); 
+
+void printNumbers(unsigned int n) 
+{ 
+   if (n == 0) return; 
+ 	printNumbers(n-1); 			
+	printf("%d\n", n); 
+} 
+
+void main() 
+{ 
+   int num,bin; 
+   printf("Enter any number : "); 
+   scanf("%d",&num); 
+   printNumbers(num);           
+} 
