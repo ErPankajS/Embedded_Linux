@@ -1,0 +1,33 @@
+
+
+#include <stdio.h>
+
+#define returnBitPosValue(pdata, pos) (pdata = ( pdata>> pos) & 0x01 )
+
+unsigned int input_data = 0xffff, pos = 5;
+
+int main() 
+{
+    printf("input_data 0x%x \n", input_data);
+
+    returnBitPosValue(input_data, pos);
+
+    printf("BitPosValue at pos %d : %d \n", pos, input_data);
+
+    return 0;
+}
+
+/********************
+ * Test case 1:
+ input_data 0xfaaa 
+BitPosValue at pos 1 : 1 
+
+Case 2: 
+input_data 0xfbbb 
+BitPosValue at pos 1 : 1 
+
+case 3:
+input_data 0xffff 
+BitPosValue at pos 5 : 1 
+
+**************/

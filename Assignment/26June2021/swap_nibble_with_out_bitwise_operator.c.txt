@@ -1,0 +1,45 @@
+
+
+#include <stdio.h>
+#include <stdint.h>
+
+struct struct_nibble_Data {
+    uint8_t first:4;
+    uint8_t second:4;
+};
+union union_byte{
+    uint8_t byte;
+    struct struct_nibble_Data struct_nibble_Data_1;
+};
+
+uint8_t swapNibble(uint8_t input){
+    union union_byte union_byte_1;
+    union_byte_1.byte = input;
+    uint8_t tempData;
+    tempData = union_byte_1.struct_nibble_Data_1.first;
+    union_byte_1.struct_nibble_Data_1.first=  union_byte_1.struct_nibble_Data_1.second;
+    union_byte_1.struct_nibble_Data_1.second = tempData;
+    return union_byte_1.byte;
+} 
+int main() {
+    uint8_t data = 0x8f;
+    printf("input data: 0x%x \n", data);
+    printf("data byte after nibble swaping: 0x%x \n", swapNibble(data));
+
+    return 0;
+}
+
+
+/***********************************************
+ * Test case: 1:
+   input data: 0x6f 
+   data byte after nibble swaping: 0xf6 
+    
+   Test case: 2:
+   input data: 0x3f 
+   data byte after nibble swaping: 0xf3 
+   
+    Test case: 3:
+    input data: 0x8f 
+    data byte after nibble swaping: 0xf8
+ ************************************************/
