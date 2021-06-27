@@ -1,0 +1,57 @@
+
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+   
+/* Swaps strings by swapping pointers */ 
+void swap1(char **str1_ptr, char **str2_ptr)
+{
+  char *temp = *str1_ptr;
+  *str1_ptr = *str2_ptr;
+  *str2_ptr = temp;
+}  
+   
+/* Swaps strings by swapping data*/
+void swap2(char *str1, char *str2)
+{
+  char *temp = (char *)malloc((strlen(str1) + 1) * sizeof(char));
+  strcpy(temp, str1);
+  strcpy(str1, str2);
+  strcpy(str2, temp);
+  free(temp);
+}  
+   
+int main()
+{
+  char a_str1[10] = "welcome";
+  char a_str2[10] = "back";
+    
+  char *str1 = "welcome";
+  char *str2 = "back"; 
+   
+  printf("\nSwaps strings by swapping pointers");
+  printf("\n Before str1 is %s, str2 is %s", str1, str2);
+  swap1(&str1, &str2);
+  printf("\n After str1 is %s, str2 is %s", str1, str2);
+    
+  printf("\n \n Swaps strings by swapping data");    
+  printf("\n Before a_str1 is %s, a_str2 is %s", a_str1, a_str2);
+  swap2(a_str1, a_str2);
+  printf("\n After a_str1 is %s, a_str2 is %s", a_str1, a_str2);
+  
+  getchar();
+  return 0;
+}
+
+/****************
+ * Test case output: 
+ * Swaps strings by swapping pointers
+   Before str1 is welcome, str2 is back
+   After str1 is back, str2 is welcome
+ 
+   Swaps strings by swapping data
+   Before a_str1 is welcome, a_str2 is back
+   After a_str1 is back, a_str2 is welcome
+ * 
+ * ************/

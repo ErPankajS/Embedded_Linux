@@ -1,41 +1,43 @@
 
-
-
 #include<stdio.h>
+
 void bin(unsigned n);
-#define SetBit(number,bit) (number|=(1<<bit-1))
-#define ClearBit(number,bit) (number&=(~(1<<bit-1)))
-#define Toggle(number,bit) (number ^ (1<<bit-1))
+
+#define SetBit(number,bit) (number|=(1<<bit))
+#define ClearBit(number,bit) (number&=(~(1<<bit)))
+#define Toggle(number,bit) (number ^ (1<<bit))
+
 int main()
 {
-int i=9;
-printf("\n Binary of 9 is : ");
-bin(i);
-i=SetBit(i,4);
-printf("\n Set 4th bit of 9 : ");
-bin(i);
-i=ClearBit(i,4);
-printf("\n Clear 4th bit of 9 : ");
-bin(i);
-i=Toggle(i,1);
-printf("\n Toggle 1st bit of 9 : ");
-bin(i);
-return 0;
+	int i=9;
+	printf("\n Binary of 9 is : ");
+	bin(i);
+	i=SetBit(i,4);
+	printf("\n Set 4th bit of 9 : ");
+	bin(i);
+	i=ClearBit(i,4);
+	printf("\n Clear 4th bit of 9 : ");
+	bin(i);
+	i=Toggle(i,1);
+	printf("\n Toggle 1st bit of 9 : ");
+	bin(i);
+	return 0;
 }
 void bin(unsigned n)
 {
  unsigned i;
  for (i = (1 << 31) ; i > 0; i = (i>>1))
  if(n & i)
-printf("1");
-else
-printf("0");
+   printf("1");
+ else
+   printf("0");
 }
 
-/**********
-Test Output:
-Binary of 9 is : 00000000000000000000000000001001
-Set 4th bit of 9 : 00000000000000000000000000001001
-Clear 4th bit of 9 : 00000000000000000000000000000001
-Toggle 1st bit of 9 : 00000000000000000000000000000000
-***********/
+/***********************
+ * Test output:
+ *  Binary of 9 is : 00000000000000000000000000001001
+    Set 4th bit of 9 : 00000000000000000000000000011001
+    Clear 4th bit of 9 : 00000000000000000000000000001001
+    Toggle 1st bit of 9 : 00000000000000000000000000001011
+ * 
+ * ********************/
