@@ -1,0 +1,34 @@
+
+/***************************
+
+The perror() function produces a message on standard error describing the last error encountered during a call to a system or library function. 
+When a system call fails, it usually returns -1 and sets the variable errno to a value describing what went wrong. 
+
+****************************/
+
+
+#include <stdio.h>
+
+int main () {
+   FILE *fp;
+
+   /* first rename if there is any file */
+   rename("file.txt", "newfile.txt");
+
+   /* now let's try to open same file */
+   fp = fopen("file.txt", "r");
+   if( fp == NULL ) {
+      perror("Error: ");
+      return(-1);
+   }
+   fclose(fp);
+      
+   return(0);
+}
+
+/*********************
+ Test Results:
+
+Error: : No such file or directory
+
+*********************/

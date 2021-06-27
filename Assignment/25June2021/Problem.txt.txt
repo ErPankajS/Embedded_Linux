@@ -7,9 +7,7 @@
 
 2.Conclude structure copy of C is shallow copy or deep copy?
 
-
 http://www.cs.ecu.edu/~karl/2530/spr19/Notes/lec23C.html
-
 3.Draw the memorry layout for big & little endian and map the variables from the given program!
 
 4.List out the applications of Union?
