@@ -1,0 +1,35 @@
+
+
+
+#include<stdio.h>
+#define MACRO_CUBE(num1) ((num1) * (num1) * (num1))
+
+static inline int statc_inline_cube(int num) {
+  return num * num * num;
+}
+
+int main()
+{
+    int data, data1;
+    printf("Enter input_data : ");
+    scanf("%d",&data);
+    data1 = data;
+    printf("data : %d statc_inline_cube function : %d\n", data, statc_inline_cube(data));
+    printf("data1 : %d MACRO_CUBE function  : %d\n", data1, MACRO_CUBE(data1));
+    
+    return 0;	
+}
+
+/*********************
+ * Test Case : 1
+ *  Enter input_data : 3
+    data : 3 statc_inline_cube function : 27
+    data1 : 3 MACRO_CUBE function  : 27
+    
+    Test Case : 2
+    Enter input_data : 5
+    data : 5 statc_inline_cube function : 125
+    data1 : 5 MACRO_CUBE function  : 125
+ * 
+ * 
+ * *******************/

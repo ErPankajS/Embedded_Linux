@@ -1,0 +1,35 @@
+
+#include <stdio.h>
+typedef struct{
+    char name[20];
+    int id;
+}book_t;
+
+int main() {
+     book_t book_1 ={
+        {'A', 'B', 'C','\0'},
+        0x123,
+     };
+     book_t book_2;
+     book_2 = book_1;
+     
+     printf("book name of second book:%s, id:0x%x \n", book_2.name, book_2.id);
+     printf("Post updated first book is to 0x98765\n");
+     book_1.id = 0x765;
+     printf("book name of second book:%s, id:0x%x \n", book_2.name, book_2.id);
+     if(book_1.id != book_2.id){
+        printf("structure copy of C is deep copy \n");
+     }else{
+        printf("structure copy of C is shallow copy \n");
+     }
+    return 0;
+}
+
+/********************
+ * Test case : 1
+ * book name of second book:ABC, id:0x123 
+   Post updated first book is to 0x98765
+   book name of second book:ABC, id:0x123 
+   structure copy of C is deep copy 
+ * 
+ * *****************/
