@@ -10,6 +10,7 @@ a)  Hex to Binary
 b) Binary  to Hex
 
 c) Hex to  ASCII
+
 d) Text to Binary
 
 
